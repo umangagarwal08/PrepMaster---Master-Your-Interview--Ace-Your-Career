@@ -15,6 +15,8 @@ and get interview questions to help you prepare!
 # Input for Topic
 topic = st.text_input("Enter the Topic (e.g., Python basics, Data structures, Machine learning)")
 
+st.sidebar.markdown("Created by Umang Agarwal")
+st.sidebar.markdown("Linkedin:https://www.linkedin.com/in/umangagarwal08/")
 # Submit Button
 if st.button("Generate Questions"):
     if topic:
