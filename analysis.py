@@ -10,7 +10,7 @@ genai.configure(api_key='AIzaSyC8550xiHFPK3IVdYSL80HMiDUp6y16zc0')
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 def model_gen(topic):
-    difficulty_based="Generate a set of tricky coding interview questions focused on the topic: "+topic+""" Organize 
+    difficulty_based="Generate a set of tricky coding interview questions in which we have to code focused on the topic: "+topic+""" Organize 
       the questions into three difficulty levels — easy, medium, and hard —
       with at least 10 questions in each category.
       Easy: Create questions that test basic understanding of the topic, 
@@ -19,9 +19,9 @@ def model_gen(topic):
         knowledge of the topic, including algorithm optimization, handling edge cases, and applying theoretical knowledge in code.
       Hard: Formulate challenging questions that demand advanced problem-solving abilities and 
       comprehensive understanding of the topic, such as complex algorithms, data structure manipulation, and optimized solutions for real-world scenarios.
-      For each question, provide a hint or explanation that will help the candidate approach the 
+      For each question,provide a hint or explanation in next line that will help the candidate approach the 
       problem or understand the concepts required to solve it. Hints should be concise, highlighting 
-      key ideas, useful steps, or strategies for problem-solving.Give the hint in next line"""
+      key ideas, useful steps, or strategies for problem-solving."""
     difficulty_ans=model.generate_content(difficulty_based)
 
     category_based="Generate three types of interview questions for"+ topic+":\
@@ -29,7 +29,7 @@ def model_gen(topic):
                     - **Applied** questions that require practical application of the topic.\
                     - **Scenario-based** questions, where the candidate has to apply knowledge in a real-world scenario.\
                     For each interview question generated, provide a hint \
-                                 or explanation that can help the student understand how to \
+                                 or explanation in next line that can help the student understand how to \
                                  approach or answer the question. These hints should give a \
                                  concise explanation of key concepts or provide steps for \
                                  solving the question Generate atleat 10 question of each type give the hint in next line"
