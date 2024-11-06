@@ -6,7 +6,7 @@ The **Smart Interview Question Generator** is a web application built using **St
 
 ## Features
 
-- **Difficulty-Based Questions**: Generate technical, situational, and behavioral questions with difficulty levels: easy, medium, and hard.
+- **Coding-Based Questions**: Generate tricy coding questions with difficulty levels: easy, medium, and hard.
 - **Category-Based Questions**: Generate conceptual, applied, and scenario-based interview questions with difficulty levels.
 - **Interactive UI**: Input a topic and receive interview questions along with hints.
 
