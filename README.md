@@ -1,7 +1,3 @@
-Here’s a basic **`README.md`** for your project, detailing how to set it up and use the Streamlit app that integrates **Google Generative AI** to generate interview questions.
-
----
-
 # Smart Interview Question Generator
 
 ## Overview
@@ -113,7 +109,3 @@ Feel free to contribute to the project! If you find any bugs or have suggestions
 Created by **Umang Agarwal**
 
 - [LinkedIn Profile](https://www.linkedin.com/in/umangagarwal08/)
-  
----
-
-Let me know if you need further adjustments!
