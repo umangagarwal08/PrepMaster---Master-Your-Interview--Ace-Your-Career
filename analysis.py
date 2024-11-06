@@ -39,6 +39,6 @@ def model_gen(topic):
     return{#st.subheader(body = "Difficulty Based Questions"),
            st.write(difficulty_ans.text),
            #st.subheader(body = "Category Based Questions"),
-           st.write(category_based.text)
+           st.write(category_ans.text)
     } 
 
