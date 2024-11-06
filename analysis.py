@@ -28,7 +28,6 @@ def model_gen(topic):
                     - **Conceptual** questions to assess basic knowledge of the topic.\
                     - **Applied** questions that require practical application of the topic.\
                     - **Scenario-based** questions, where the candidate has to apply knowledge in a real-world scenario.\
-                        Classify each question as easy, medium, or hard based on complexity.\
                     For each interview question generated, provide a hint \
                                  or explanation that can help the student understand how to \
                                  approach or answer the question. These hints should give a \
