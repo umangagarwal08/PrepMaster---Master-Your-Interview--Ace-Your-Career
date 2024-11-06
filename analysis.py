@@ -21,7 +21,7 @@ def model_gen(topic):
       comprehensive understanding of the topic, such as complex algorithms, data structure manipulation, and optimized solutions for real-world scenarios.
       For each question, provide a hint or explanation that will help the candidate approach the 
       problem or understand the concepts required to solve it. Hints should be concise, highlighting 
-      key ideas, useful steps, or strategies for problem-solving."""
+      key ideas, useful steps, or strategies for problem-solving.Give the hint in next line"""
     difficulty_ans=model.generate_content(difficulty_based)
 
     category_based="Generate three types of interview questions for"+ topic+":\
@@ -32,7 +32,7 @@ def model_gen(topic):
                                  or explanation that can help the student understand how to \
                                  approach or answer the question. These hints should give a \
                                  concise explanation of key concepts or provide steps for \
-                                 solving the question Generate atleat 10 question of each type"
+                                 solving the question Generate atleat 10 question of each type give the hint in next line"
     
     category_ans=model.generate_content(category_based)
 
