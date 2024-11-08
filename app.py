@@ -29,40 +29,22 @@ topic = st.text_input("Enter the Topic (e.g., Python basics, Data structures, Ma
 company = st.text_input("Enter the Company name if you are targeting specific companies")
 
 # Separate Buttons for Coding and Theory Questions
-col1, col2 = st.columns(2)
+col1, col2  = st.columns(2)
 with col1:
     if st.button("Generate Coding Questions"):
-        if topic:
-            # Display loading spinner while generating questions
-            with st.spinner("Generating coding questions..."):
-                try:
-                    # Use selected company from sidebar if chosen
-                    selected_company = st.session_state.get('selected_company', company)
-                    
+        if topic:   
                     # Call the coding_ques function from analysis.py with the entered topic and company
-                    questions = coding_ques(topic=topic, company=selected_company)
+                    questions = coding_ques(topic=topic, company=company)
                     st.markdown(questions)
-                    
-                except Exception as e:
-                    st.error(f"An error occurred: {e}")
         else:
             st.warning("Please enter a topic to generate coding questions.")
 
 with col2:
     if st.button("Generate Theory Questions"):
         if topic:
-            # Display loading spinner while generating questions
-            with st.spinner("Generating theory questions..."):
-                try:
-                    # Use selected company from sidebar if chosen
-                    selected_company = st.session_state.get('selected_company', company)
-
                     # Call the theory_ques function from analysis.py with the entered topic and company
-                    questions = theory_ques(topic=topic, company=selected_company)
+                    questions = theory_ques(topic=topic, company=company)
                     st.markdown(questions)
-                    
-                except Exception as e:
-                    st.error(f"An error occurred: {e}")
         else:
             st.warning("Please enter a topic to generate theory questions.")
 
