@@ -23,7 +23,8 @@ def coding_ques(topic,company):
       problem or understand the concepts required to solve it. Hints should be concise, highlighting 
       key ideas, useful steps, or strategies for problem-solving."""
     coding_ans=model.generate_content(coding_based)
-    return{st.write(coding_ans.text)}
+    return{#st.subheader(body = "Difficulty Based Questions"),
+           st.write(coding_ans.text)}
 
 
 def theory_ques(topic,company):
@@ -39,10 +40,11 @@ def theory_ques(topic,company):
     
     theory_ans=model.generate_content(theory_based)
 
-    return{st.write(theory_ans.text)} 
+    return{
+           #st.subheader(body = "Category Based Questions"),
+           st.write(theory_ans.text)
+    } 
 
 
-
-
-
+    
 
