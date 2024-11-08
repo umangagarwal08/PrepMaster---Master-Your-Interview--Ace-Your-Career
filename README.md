@@ -21,7 +21,7 @@ The **Smart Interview Question Generator** is a web application built using **St
 - **app.py**: Main Streamlit app file where user interaction happens.
 - **analysis.py**: Contains the logic for generating interview questions using the **Google Generative AI** API.
   
-The `model_gen` function in `analysis.py` interacts with the **Google Generative AI API** to generate both **difficulty-based** and **category-based** interview questions.
+The `model_gen` function in `analysis.py` interacts with the **Google Generative AI API** to generate both **coding** and **theoritical** interview questions.
 
 ## Contribution
 
