@@ -4,7 +4,7 @@ import streamlit as st
 from analysis import coding_ques, theory_ques, create_pdf
 
 # App Title
-st.title("green[PeepMaster] - Smart Technical Interview Question Generator✍️",divider='Green')
+st.header("green[PeepMaster] - Smart Technical Interview Question Generator✍️",divider='Green')
 logo_path = "logo.png"  # Use the path to your logo image file
 st.sidebar.image(logo_path, width=150) 
 # App Description
