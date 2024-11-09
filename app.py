@@ -1,7 +1,7 @@
 # app.py
 
 import streamlit as st
-from analysis import model_gen  # type: ignore # Import the model_gen function from analysis.py
+from analysis import coding_ques,theory_ques  # type: ignore # Import the model_gen function from analysis.py
 
 # App Title
 st.title("Smart Interview Question Generator")
@@ -25,7 +25,7 @@ if st.button("Generate Questions"):
         with st.spinner("Generating questions..."):
             try:
                 # Call the model_gen function from analysis.py with the entered topic
-                st.markdown(model_gen(topic=topic))
+                st.markdown(coding_ques(topic=topic))
                 
             except Exception as e:
                 st.error(f"An error occurred: {e}")
