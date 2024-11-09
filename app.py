@@ -18,16 +18,32 @@ company = st.text_input("Enter the Company name if you are ")
 
 st.sidebar.markdown("Created by Umang Agarwal")
 st.sidebar.markdown("Linkedin:https://www.linkedin.com/in/umangagarwal08/")
+col1, col2 = st.columns(2)
 # Submit Button
-if st.button("Generate Questions"):
-    if topic:
-        # Display loading spinner while generating questions
-        with st.spinner("Generating questions..."):
-            try:
-                # Call the model_gen function from analysis.py with the entered topic
-                st.markdown(theory_ques(topic=topic,company=company))
+with col1:
+    if st.button("Generate Coding Questions"):
+        if topic:
+            # Display loading spinner while generating questions
+            with st.spinner("Generating questions..."):
+                try:
+                    # Call the model_gen function from analysis.py with the entered topic
+                    st.markdown(coding_ques(topic=topic,company=company))
                 
-            except Exception as e:
-                st.error(f"An error occurred: {e}")
-    else:
-        st.warning("Please enter a topic to generate questions.")
+                except Exception as e:
+                    st.error(f"An error occurred: {e}")
+        else:
+            st.warning("Please enter a topic to generate questions.")
+
+with col2:
+    if st.button("Generate Theory Questions"):
+        if topic:
+            # Display loading spinner while generating questions
+            with st.spinner("Generating questions..."):
+                try:
+                    # Call the model_gen function from analysis.py with the entered topic
+                    st.markdown(theory_ques(topic=topic,company=company))
+                
+                except Exception as e:
+                    st.error(f"An error occurred: {e}")
+        else:
+            st.warning("Please enter a topic to generate questions.")
