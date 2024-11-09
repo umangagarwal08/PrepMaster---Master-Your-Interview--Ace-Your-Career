@@ -56,7 +56,7 @@ if coding_button:
                 pdf_data = create_pdf(ss)
                 st.download_button(
                       label="Download Coding Questions PDF",
-                        data=pdf_data,
+                        data=ss,
                         file_name="coding_questions.pdf",
                         mime="application/pdf"
                 )
