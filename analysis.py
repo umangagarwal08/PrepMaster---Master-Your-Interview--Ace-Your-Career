@@ -45,7 +45,8 @@ def theory_ques(topic,company):
 
     return{
            #st.subheader(body = "Category Based Questions"),
-           st.write(theory_ans.text)
+           st.write(theory_ans.text),
+           theory_ans.text
     } 
 
 
@@ -64,9 +65,3 @@ def create_pdf(text):
     # Use multi_cell to add formatted text, ensuring each line fits
     pdf.multi_cell(0, 10, text)
     return pdf.output(dest="S").encode("latin1")  # Returns PDF as byte data
-
-# Function to generate download link for the PDF
-def download_pdf(data, filename):
-    b64 = base64.b64encode(data).decode()  # encode as base64
-    href = f'<a href="data:application/octet-stream;base64,{b64}" download="{filename}">Download PDF</a>'
-    return href

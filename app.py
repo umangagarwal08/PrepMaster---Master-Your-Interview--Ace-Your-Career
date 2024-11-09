@@ -38,25 +38,15 @@ if coding_button:
             try:
                 # Call the coding_ques function from analysis.py with the entered topic and company
                 coding_text = coding_ques(topic=topic, company=company)
-                
-                # Handle cases where coding_text might be None or contain None items
-                if isinstance(coding_text, set):
-                    coding_text = "\n".join(str(item) for item in coding_text if item is not None)
-                elif coding_text is None:
-                    st.warning("No coding questions were generated.")
-                    coding_text = ""
-                elif not isinstance(coding_text, str):
-                    coding_text = str(coding_text)
-                ss=str(coding_text)
                 st.markdown(coding_text)
 
                 # Generate PDF option if there's text content
                 
                 #if ss.strip():  # Check if there is any non-whitespace content
-                pdf_data = create_pdf(ss)
+                pdf_data = create_pdf(coding_text)
                 st.download_button(
                       label="Download Coding Questions PDF",
-                        data=ss,
+                        data=pdf_data,
                         file_name="coding_questions.pdf",
                         mime="application/pdf"
                 )
@@ -71,22 +61,14 @@ if theory_button:
         with st.spinner("Generating theory questions..."):
             try:
                 # Call the theory_ques function from analysis.py with the entered topic and company
-                theory_text = theory_ques(topic=topic, company=company)
+                theory_text ,ss= theory_ques(topic=topic, company=company)
 
-                # Handle cases where theory_text might be None or contain None items
-                if isinstance(theory_text, set):
-                    theory_text = "\n".join(str(item) for item in theory_text if item is not None)
-                elif theory_text is None:
-                    st.warning("No theory questions were generated.")
-                    theory_text = ""
-                elif not isinstance(theory_text, str):
-                    theory_text = str(theory_text)
 
                 st.markdown(theory_text)
                 
                 # Generate PDF option if there's text content
-                if theory_text:
-                    pdf_data = create_pdf(theory_text)
+                if ss:
+                    pdf_data = create_pdf(ss)
                     st.download_button(
                         label="Download Theory Questions PDF",
                         data=pdf_data,
