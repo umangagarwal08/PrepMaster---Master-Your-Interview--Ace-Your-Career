@@ -2,7 +2,6 @@
 
 import streamlit as st
 from analysis import coding_ques , theory_ques ,create_pdf,download_pdf
-from fpdf import FPDF  # type: ignore
 
 # App Title
 st.title("Smart Interview Question Generator")
