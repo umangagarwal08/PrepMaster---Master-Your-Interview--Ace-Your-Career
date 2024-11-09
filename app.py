@@ -1,7 +1,7 @@
 # app.py
 
 import streamlit as st
-from analysis import coding_ques,theory_ques  # type: ignore # Import the model_gen function from analysis.py
+from analysis import coding_ques , theory_ques  
 
 # App Title
 st.title("Smart Interview Question Generator")
