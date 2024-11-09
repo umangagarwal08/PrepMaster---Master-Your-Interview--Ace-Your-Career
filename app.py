@@ -51,9 +51,9 @@ if coding_button:
                 st.markdown(coding_text)
 
                 # Generate PDF option if there's text content
-                if coding_text:
-                    pdf_data = create_pdf(coding_text)
-                    st.download_button(
+                
+                pdf_data = create_pdf(coding_text)
+                st.download_button(
                         label="Download Coding Questions PDF",
                         data=pdf_data,
                         file_name="coding_questions.pdf",
