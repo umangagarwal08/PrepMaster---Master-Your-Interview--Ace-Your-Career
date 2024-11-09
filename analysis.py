@@ -1,6 +1,7 @@
 import streamlit as st
 import google.generativeai as genai # type: ignore
-from fpdf import FPDF  # type: ignore
+from fpdf import FPDF
+import base64
 
 import os
 
