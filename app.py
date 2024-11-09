@@ -52,16 +52,14 @@ if coding_button:
 
                 # Generate PDF option if there's text content
                 
-                if ss.strip():  # Check if there is any non-whitespace content
-                    pdf_data = create_pdf(ss)
-                    st.download_button(
-                        label="Download Coding Questions PDF",
+                #if ss.strip():  # Check if there is any non-whitespace content
+                pdf_data = create_pdf(ss)
+                st.download_button(
+                      label="Download Coding Questions PDF",
                         data=pdf_data,
                         file_name="coding_questions.pdf",
                         mime="application/pdf"
-    )
-                else:
-                    st.warning("No coding questions generated to save as PDF.")
+                )
             except Exception as e:
                 st.error(f"An error occurred: {e}")
     else:
