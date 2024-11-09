@@ -25,7 +25,7 @@ if st.button("Generate Questions"):
         with st.spinner("Generating questions..."):
             try:
                 # Call the model_gen function from analysis.py with the entered topic
-                st.markdown(coding_ques(topic=topic))
+                st.markdown(coding_ques(topic=topic,company=company))
                 
             except Exception as e:
                 st.error(f"An error occurred: {e}")
