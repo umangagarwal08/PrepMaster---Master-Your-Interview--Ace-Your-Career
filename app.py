@@ -1,7 +1,8 @@
 # app.py
 
 import streamlit as st
-from analysis import coding_ques , theory_ques  
+from analysis import coding_ques , theory_ques ,create_pdf,download_pdf
+from fpdf import FPDF  # type: ignore
 
 # App Title
 st.title("Smart Interview Question Generator")
@@ -33,7 +34,16 @@ if coding_button:
             with st.spinner("Generating questions..."):
                 try:
                     # Call the model_gen function from analysis.py with the entered topic
-                    st.markdown(coding_ques(topic=topic,company=company))
+                    coding_text=coding_ques(topic=topic,company=company)
+                    st.markdown(coding_text)
+                    if st.button("Generate PDF"):
+                        if coding_text:
+                         # Create the PDF
+                            pdf_data = create_pdf(coding_text)
+                            # Generate the download link
+                            download_link = download_pdf(pdf_data, "generated_text.pdf")
+                            st.markdown(download_link, unsafe_allow_html=True)
+
                 
                 except Exception as e:
                     st.error(f"An error occurred: {e}")
@@ -53,3 +63,11 @@ if theory_button:
                     st.error(f"An error occurred: {e}")
         else:
             st.warning("Please enter a topic to generate questions.")
+
+
+
+
+
+# Text input
+text_input = st.text_area("Enter your text here:")
+

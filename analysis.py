@@ -1,5 +1,6 @@
 import streamlit as st
 import google.generativeai as genai # type: ignore
+from fpdf import FPDF  # type: ignore
 
 import os
 
@@ -47,7 +48,16 @@ def theory_ques(topic,company):
     } 
 
 
-    
+# Function to create a PDF
+def create_pdf(text):
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.multi_cell(0, 10, text)
+    return pdf.output(dest="S").encode("latin1")  # returns the PDF as a byte object
 
-
-
+# Function to generate download link for the PDF
+def download_pdf(data, filename):
+    b64 = base64.b64encode(data).decode()  # encode as base64
+    href = f'<a href="data:application/octet-stream;base64,{b64}" download="{filename}">Download PDF</a>'
+    return href
