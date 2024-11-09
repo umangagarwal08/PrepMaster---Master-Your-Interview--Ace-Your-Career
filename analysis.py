@@ -4,8 +4,8 @@ import google.generativeai as genai # type: ignore
 import os
 
 #Configure the API key
-api_key = os.getenv("GOOGLE-API-KEY")  # Recommended approach
-genai.configure(api_key=api_key)
+apikey = os.getenv("GOOGLE-API-KEY")  # Recommended approach
+genai.configure(api_key=apikey)
 
 model = genai.GenerativeModel("gemini-1.5-flash") 
 
@@ -23,12 +23,13 @@ def coding_ques(topic,company):
       problem or understand the concepts required to solve it. Hints should be concise, highlighting 
       key ideas, useful steps, or strategies for problem-solving."""
     coding_ans=model.generate_content(coding_based)
+    
     return{#st.subheader(body = "Difficulty Based Questions"),
            st.write(coding_ans.text)}
 
 
 def theory_ques(topic,company):
-    theory_based="Generate three types of easy to  medium interview questions for  {company} company on "+ topic+":\
+    theory_based=f"Generate three types of easy to  medium interview questions for  {company} company on "+ topic+":\
                     - **Conceptual** questions to assess basic knowledge of the topic.\
                     - **Applied** questions that require practical application of the topic.\
                     - **Scenario-based** questions, where the candidate has to apply knowledge in a real-world scenario.\
@@ -47,4 +48,6 @@ def theory_ques(topic,company):
 
 
     
+
+
 
