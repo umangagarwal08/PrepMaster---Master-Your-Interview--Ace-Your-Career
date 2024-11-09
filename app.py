@@ -1,7 +1,7 @@
 # app.py
 
 import streamlit as st
-from analysis import coding_ques, theory_ques, create_pdf  # No need for download_pdf here
+from analysis import coding_ques, theory_ques, create_pdf
 
 # App Title
 st.title("Smart Interview Question Generator")
@@ -38,6 +38,13 @@ if coding_button:
             try:
                 # Call the coding_ques function from analysis.py with the entered topic and company
                 coding_text = coding_ques(topic=topic, company=company)
+                
+                # Ensure coding_text is a string
+                if isinstance(coding_text, set):
+                    coding_text = "\n".join(coding_text)  # Convert set to string format with line breaks
+                elif not isinstance(coding_text, str):
+                    coding_text = str(coding_text)
+
                 st.markdown(coding_text)
 
                 # Generate PDF option
@@ -60,6 +67,13 @@ if theory_button:
             try:
                 # Call the theory_ques function from analysis.py with the entered topic and company
                 theory_text = theory_ques(topic=topic, company=company)
+
+                # Ensure theory_text is a string
+                if isinstance(theory_text, set):
+                    theory_text = "\n".join(theory_text)  # Convert set to string format with line breaks
+                elif not isinstance(theory_text, str):
+                    theory_text = str(theory_text)
+
                 st.markdown(theory_text)
                 
                 # Generate PDF option
