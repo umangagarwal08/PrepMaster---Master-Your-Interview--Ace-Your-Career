@@ -51,11 +51,19 @@ def theory_ques(topic,company):
 
 # Function to create a PDF
 def create_pdf(text):
+    # Ensure text is not None and handle special characters
+    if not text:
+        text = "No content provided"
+    
+    # Replace non-ASCII characters if necessary
+    text = text.encode('ascii', 'ignore').decode('ascii')
+
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
+    # Use multi_cell to add formatted text, ensuring each line fits
     pdf.multi_cell(0, 10, text)
-    return pdf.output(dest="S").encode("latin1")  # returns the PDF as a byte object
+    return pdf.output(dest="S").encode("latin1")  # Returns PDF as byte data
 
 # Function to generate download link for the PDF
 def download_pdf(data, filename):
