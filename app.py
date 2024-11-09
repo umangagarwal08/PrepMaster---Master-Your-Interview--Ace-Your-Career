@@ -37,12 +37,11 @@ if coding_button:
                     coding_text=coding_ques(topic=topic,company=company)
                     st.markdown(coding_text)
                     if st.button("Generate PDF"):
-                        if coding_text:
                          # Create the PDF
-                            pdf_data = create_pdf(coding_text)
-                            # Generate the download link
-                            download_link = download_pdf(pdf_data, "generated_text.pdf")
-                            st.markdown(download_link, unsafe_allow_html=True)
+                        pdf_data = create_pdf(coding_text)
+                        # Generate the download link
+                        download_link = download_pdf(pdf_data, "generated_text.pdf")
+                        st.markdown(download_link, unsafe_allow_html=True)
 
                 
                 except Exception as e:
@@ -64,10 +63,4 @@ if theory_button:
         else:
             st.warning("Please enter a topic to generate questions.")
 
-
-
-
-
-# Text input
-text_input = st.text_area("Enter your text here:")
 
