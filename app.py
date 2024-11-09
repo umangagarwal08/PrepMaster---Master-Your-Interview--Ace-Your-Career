@@ -37,13 +37,13 @@ if coding_button:
         with st.spinner("Generating coding questions..."):
             try:
                 # Call the coding_ques function from analysis.py with the entered topic and company
-                coding_text = coding_ques(topic=topic, company=company)
+                coding_text,coding_pri = coding_ques(topic=topic, company=company)
                 st.markdown(coding_text)
 
                 # Generate PDF option if there's text content
                 
                 #if ss.strip():  # Check if there is any non-whitespace content
-                pdf_data = create_pdf(coding_text)
+                pdf_data = create_pdf(coding_pri)
                 st.download_button(
                       label="Download Coding Questions PDF",
                         data=pdf_data,
@@ -61,20 +61,20 @@ if theory_button:
         with st.spinner("Generating theory questions..."):
             try:
                 # Call the theory_ques function from analysis.py with the entered topic and company
-                theory_text ,ss= theory_ques(topic=topic, company=company)
+                theory_text ,theory_pri= theory_ques(topic=topic, company=company)
 
 
                 st.markdown(theory_text)
                 
                 # Generate PDF option if there's text content
-                if ss:
-                    pdf_data = create_pdf(ss)
+                if theory_pri:
+                    pdf_data = create_pdf(theory_pri)
                     st.download_button(
                         label="Download Theory Questions PDF",
                         data=pdf_data,
                         file_name="theory_questions.pdf",
                         mime="application/pdf"
-                    )
+                    )       
             except Exception as e:
                 st.error(f"An error occurred: {e}")
     else:

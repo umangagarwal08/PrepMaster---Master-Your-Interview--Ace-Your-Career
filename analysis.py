@@ -27,7 +27,7 @@ def coding_ques(topic,company):
     coding_ans=model.generate_content(coding_based)
     
     return{#st.subheader(body = "Difficulty Based Questions"),
-           coding_ans.text}
+           st.write(coding_ans.text),coding_ans.text}
 
 
 def theory_ques(topic,company):
@@ -45,8 +45,8 @@ def theory_ques(topic,company):
 
     return{
            #st.subheader(body = "Category Based Questions"),
-           theory_ans.text,theory_ans.text
-           
+           st.write(theory_ans.text),
+           theory_ans.text
     } 
 
 
