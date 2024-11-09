@@ -1,7 +1,7 @@
 # app.py
 
 import streamlit as st
-from analysis import coding_ques, theory_ques, create_pdf
+from analysis import coding_ques, theory_ques, create_pdf  # No need for download_pdf here
 
 # App Title
 st.title("Smart Interview Question Generator")
@@ -41,16 +41,13 @@ if coding_button:
                 st.markdown(coding_text)
 
                 # Generate PDF option
-                if st.button("Generate PDF"):
-                    # Create the PDF file content
-                    pdf_data = create_pdf(coding_text)
-                    # Add a download button for the generated PDF
-                    st.download_button(
-                        label="Download PDF",
-                        data=pdf_data,
-                        file_name="coding_questions.pdf",
-                        mime="application/pdf"
-                    )
+                pdf_data = create_pdf(coding_text)
+                st.download_button(
+                    label="Download Coding Questions PDF",
+                    data=pdf_data,
+                    file_name="coding_questions.pdf",
+                    mime="application/pdf"
+                )
             except Exception as e:
                 st.error(f"An error occurred: {e}")
     else:
@@ -66,16 +63,13 @@ if theory_button:
                 st.markdown(theory_text)
                 
                 # Generate PDF option
-                if st.button("Generate Theory PDF"):
-                    # Create the PDF file content
-                    pdf_data = create_pdf(theory_text)
-                    # Add a download button for the generated PDF
-                    st.download_button(
-                        label="Download PDF",
-                        data=pdf_data,
-                        file_name="theory_questions.pdf",
-                        mime="application/pdf"
-                    )
+                pdf_data = create_pdf(theory_text)
+                st.download_button(
+                    label="Download Theory Questions PDF",
+                    data=pdf_data,
+                    file_name="theory_questions.pdf",
+                    mime="application/pdf"
+                )
             except Exception as e:
                 st.error(f"An error occurred: {e}")
     else:
