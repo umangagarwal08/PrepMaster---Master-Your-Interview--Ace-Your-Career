@@ -47,13 +47,13 @@ if coding_button:
                     coding_text = ""
                 elif not isinstance(coding_text, str):
                     coding_text = str(coding_text)
-
+                ss=str(coding_text)
                 st.markdown(coding_text)
 
                 # Generate PDF option if there's text content
                 
-                if coding_text.strip():  # Check if there is any non-whitespace content
-                    pdf_data = create_pdf(coding_text)
+                if ss.strip():  # Check if there is any non-whitespace content
+                    pdf_data = create_pdf(ss)
                     st.download_button(
                         label="Download Coding Questions PDF",
                         data=pdf_data,
