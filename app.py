@@ -6,7 +6,7 @@ from analysis import coding_ques, theory_ques, create_pdf
 # App Title
 st.title("Smart Technical Interview Question Generator")
 logo_path = "logo.png"  # Use the path to your logo image file
-st.image(logo_path, width=150) 
+st.sidebar.image(logo_path, width=150) 
 # App Description
 st.write("""
 This tool helps you generate interview questions based on a topic. Simply enter a topic below, 
